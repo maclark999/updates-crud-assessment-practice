@@ -1,15 +1,14 @@
 
 
-<h1><%= @update.user %></h1>
-<h2><%= @update.status %></h2>
-<h2><%= if @update.number_of_likes == nil
+<h1>Person: <%= @update.user %></h1>
+<h2>Status: <%= @update.status %></h2>
+<h2>How many likes? <%= if @update.number_of_likes == nil
         "this person is unliked"
       else
-        @update.number_of_likes
+        pluralize(@update.number_of_likes, "like")
       end%></h2>
 
 
-      <%= pluralize(@update.number_of_likes, "like") %>
       <%= button_to 'Like', like_path(@update)  %>
 
 <%= link_to "See all status updates", updates_path %><br>

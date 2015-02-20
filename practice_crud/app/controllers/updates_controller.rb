@@ -11,7 +11,7 @@ before_action :set_update, only: [:show, :edit, :update, :destroy]
   def create
     @update = Update.new(update_params)
     if @update.save
-      redirect_to @update
+      redirect_to @update, notice: "Status update a go"
     else
       render :new
     end
@@ -26,7 +26,7 @@ before_action :set_update, only: [:show, :edit, :update, :destroy]
 
   def update
     if @update.update_attributes(update_params)
-      redirect_to @update
+      redirect_to @update, notice: 'Status update a edited'
     else
       render :edit
     end
@@ -34,6 +34,9 @@ before_action :set_update, only: [:show, :edit, :update, :destroy]
   end
 
   def destroy
+    if @update.destroy
+    redirect_to updates_path, notice: 'Status update was successfully destroyed...forever...there\'s no going back'
+    end
   end
 
   def like

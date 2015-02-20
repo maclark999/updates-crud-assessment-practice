@@ -3,7 +3,7 @@
 
 
 <table>
-  <% @updates.each do |update| %>
+
   <thead>
     <tr>
       <th>Status</th>
@@ -13,13 +13,16 @@
   </thead>
 
   <tbody>
+    <% @updates.each do |update| %>
     <tr>
       <td><%=link_to update.status, update %></td>
       <td><%= update.user %></td>
       <td><%= pluralize(update.number_of_likes, "like") %><td>
+      <td><%= link_to 'Edit', edit_update_path(update) %></td>
+      <td><%= link_to 'Delete', update, method: :delete%></td>
     </tr>
+    <% end %>
   </tbody>
-  <% end %>
 </table>
 
 
