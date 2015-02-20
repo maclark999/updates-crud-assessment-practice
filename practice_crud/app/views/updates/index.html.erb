@@ -1,6 +1,6 @@
 <h1>All Status Updates!</h1>
 
-<% @updates.each do |update| %> 
+<% @updates.each do |update| %>
 
 <table>
   <thead>
@@ -13,7 +13,7 @@
 
   <tbody>
     <tr>
-      <td><%= update.status %></td>
+      <td><%=link_to update.status, update %></td>
       <td><%= update.user %></td>
       <td><%= update.number_of_likes %></td>
     </tr>

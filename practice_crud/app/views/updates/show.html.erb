@@ -2,14 +2,21 @@
 
 <h1><%= @update.user %></h1>
 <h2><%= @update.status %></h2>
-<h2><%= @update.number_of_likes %></h2>
+<h2><%= if @update.number_of_likes == nil
+        "this person is unliked"
+      else
+        @update.number_of_likes
+      end%></h2>
+
+      <%= pluralize(@update.number_of_likes, "like") %>
 
 
 
 
 
-
+      <%= button_to 'Like', @update.number_of_likes %>
 
 
 
 <%= link_to "See all status updates", updates_path %>
+<%= link_to 'Edit Status', edit_update_path %>
