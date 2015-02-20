@@ -1,13 +1,24 @@
 <h1>All Status Updates!</h1>
 
-<% @updates.each do |update| %> s
+<% @updates.each do |update| %> 
 
-<div class = "well">
-<%= update.status %>
-<%= update.user %>
-<%= update.number_of_likes %>
+<table>
+  <thead>
+    <tr>
+      <th>Status</th>
+      <th>User<th>
+      <th>Likes!</th>
+    </tr>
+  </thead>
 
-</div>
+  <tbody>
+    <tr>
+      <td><%= update.status %></td>
+      <td><%= update.user %></td>
+      <td><%= update.number_of_likes %></td>
+    </tr>
+  </tbody>
+</table>
 
 <% end %>
 
