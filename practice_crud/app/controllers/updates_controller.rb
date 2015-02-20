@@ -18,13 +18,19 @@ before_action :set_update, only: [:show, :edit, :update, :destroy]
   end
 
   def show
-    
+
   end
 
   def edit
   end
 
   def update
+    if @update.update_attributes(update_params)
+      redirect_to @update
+    else
+      render :edit
+    end
+
   end
 
   def destroy

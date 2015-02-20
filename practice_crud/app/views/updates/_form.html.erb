@@ -1,4 +1,17 @@
- <h1>New User!</h1>
+
+<% if @update.errors.any? %>
+<div id="error_explanation", class= "alert alert-danger">
+ <h4><%= pluralize(@update.errors.count, "error") %> prohibited this form from being saved:</h4>
+
+ <ul>
+   <% @update.errors.full_messages.each do |message| %>
+   <li><%= message %></li>
+   <% end %>
+ </ul>
+</div>
+</div>
+<% end %>
+
  <%= form_for @update do |f|%>
   <%= f.label :status %>
   <%= f.text_area :status %><br>
@@ -6,5 +19,5 @@
   <%= f.label :name %>
   <%= f.text_field :user %><br>
 
-  <%= f.submit %>
+  <%= f.submit "Submit" %>
 <% end %>
