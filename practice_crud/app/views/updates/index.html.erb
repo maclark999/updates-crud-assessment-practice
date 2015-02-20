@@ -1,8 +1,9 @@
 <h1>All Status Updates!</h1>
 
-<% @updates.each do |update| %>
+
 
 <table>
+  <% @updates.each do |update| %>
   <thead>
     <tr>
       <th>Status</th>
@@ -15,11 +16,12 @@
     <tr>
       <td><%=link_to update.status, update %></td>
       <td><%= update.user %></td>
-      <td><%= update.number_of_likes %></td>
+      <td><%= pluralize(update.number_of_likes, "like") %><td>
     </tr>
   </tbody>
+  <% end %>
 </table>
 
-<% end %>
+
 
 <%= link_to "New Update Status", new_update_path %>

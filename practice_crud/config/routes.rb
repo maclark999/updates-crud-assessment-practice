@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
    root 'updates#index'
+   post '/updates/:id/like' =>'updates#like', as: :like
    resources :updates
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

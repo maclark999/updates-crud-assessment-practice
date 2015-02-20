@@ -36,6 +36,13 @@ before_action :set_update, only: [:show, :edit, :update, :destroy]
   def destroy
   end
 
+  def like
+    @update = Update.find(params[:id])
+    @like = Update.increment_counter(:number_of_likes, @update)
+    @update.save
+    redirect_to @update
+  end
+
   private
     def update_params
       params.require(:update).permit(:status, :user, :number_of_likes)

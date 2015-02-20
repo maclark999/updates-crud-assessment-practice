@@ -8,15 +8,9 @@
         @update.number_of_likes
       end%></h2>
 
+
       <%= pluralize(@update.number_of_likes, "like") %>
+      <%= button_to 'Like', like_path(@update)  %>
 
-
-
-
-
-      <%= button_to 'Like', @update.number_of_likes %>
-
-
-
-<%= link_to "See all status updates", updates_path %>
+<%= link_to "See all status updates", updates_path %><br>
 <%= link_to 'Edit Status', edit_update_path %>
